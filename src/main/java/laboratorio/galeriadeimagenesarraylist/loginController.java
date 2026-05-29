@@ -27,92 +27,49 @@ public class loginController {
     protected void validarUsuario() {
 
         String usuario = txtLoginUsuario.getText().trim();
-
         String password = pswLoginPassword.getText().trim();
 
-        // Validar campos vacíos
+        // Valida si los están campos vacíos
         if (usuario.isEmpty() || password.isEmpty()) {
-
             lblError.setVisible(true);
-
+            lblError.setStyle("-fx-text-fill: red;");
             lblError.setText("Complete todos los campos");
-
             return;
-
         }
-
-        boolean usuarioCorrecto=usuario.equalsIgnoreCase("admin");
-
-        boolean passwordCorrecto=password.equals("campusjalpa");
-
-        // Login correcto
+        //Verifica si los datos que digito el usuario son correctos
+        boolean usuarioCorrecto = usuario.equalsIgnoreCase("admin");
+        boolean passwordCorrecto = password.equals("campusjalpa");
+        
         if (usuarioCorrecto && passwordCorrecto) {
-
             try {
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("galeria-view.fxml"));
-
                 Parent root = loader.load();
 
                 Stage stage = new Stage();
-
                 stage.setScene(new Scene(root));
-
                 stage.setTitle("Galería de imágenes");
-
                 stage.setMaximized(true);
-
                 stage.show();
 
                 // Cerrar login
-                Stage loginStage=(Stage) txtLoginUsuario.getScene().getWindow();
-
+                Stage loginStage = (Stage) txtLoginUsuario.getScene().getWindow();
                 loginStage.close();
 
             } catch (Exception e) {
-
+                System.err.println("Error: No se pudo cargar el archivo FXML de la galería.");
                 e.printStackTrace();
-
             }
-
             return;
-
         }
-
-        // Mostrar error
+        //Mostrar mensaje de error en rojo si el usuario o contraseña se puso de forma incorrecta
         lblError.setVisible(true);
+        lblError.setStyle("-fx-text-fill: red;");
+        lblError.setText("Usuario y/o contraseña incorrectos");
 
-        // Ambos incorrectos
-        if (!usuarioCorrecto && !passwordCorrecto) {
-
-            lblError.setText("Usuario y contraseña incorrectos");
-
-            txtLoginUsuario.clear();
-
-            pswLoginPassword.clear();
-
-        }
-        // Solo usuario incorrecto
-        else if (!usuarioCorrecto) {
-
-            lblError.setText("Usuario incorrecto");
-
-            txtLoginUsuario.clear();
-
-        }
-        // Solo contraseña incorrecta
-        else {
-
-            lblError.setText("Contraseña incorrecta");
-
-            pswLoginPassword.clear();
-
-        }
-
-        lblError.setStyle("-fx-text-fill:red;");
-
+        // Limpiamos ambos campos para no dar pistas de cuál estaba bien
+        txtLoginUsuario.clear();
+        pswLoginPassword.clear();
+        //Fija el puntero en la primera caja de texto
         txtLoginUsuario.requestFocus();
-
     }
-
 }

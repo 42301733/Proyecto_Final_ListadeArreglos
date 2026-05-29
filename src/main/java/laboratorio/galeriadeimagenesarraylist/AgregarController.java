@@ -8,7 +8,6 @@ package laboratorio.galeriadeimagenesarraylist;
  * @author Jorge
  * @author adria
  */
-
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,11 +24,7 @@ public class AgregarController {
     private int indiceAEditar = -1;
 
     private boolean esModificacion = false;
-
-    /**
-     * Este método lo llama GaleriaController cuando presionas el lápiz verde.
-     * Rellena los campos con los datos actuales para poder modificarlos.
-     */
+    
     public void prepararParaModificar(String ruta, String titulo, int indice) {
 
         this.indiceAEditar = indice;
@@ -72,39 +67,31 @@ public class AgregarController {
         }
 
         // Normalizar ruta externa
-        if ((ruta.endsWith(".jpg")|| ruta.endsWith(".png")|| ruta.endsWith(".jpeg"))&& !ruta.startsWith("http")&& !ruta.startsWith("https")&& !ruta.startsWith("file:")&& !ruta.startsWith("/")) {
+        if ((ruta.endsWith(".jpg") || ruta.endsWith(".png") || ruta.endsWith(".jpeg")) && !ruta.startsWith("http") && !ruta.startsWith("https") && !ruta.startsWith("file:") && !ruta.startsWith("/")) {
 
             ruta = "file:/" + ruta.replace("\\", "/");
         }
 
         // MODIFICAR
         if (esModificacion) {
+            if (indiceAEditar >= 0 && indiceAEditar < galeriaController.listaDeImagenes.size()) {
 
-            if (indiceAEditar >= 0&& indiceAEditar < galeriaController.listaImagenes.size()) {
-
-                Imagen img = galeriaController.listaImagenes.get(indiceAEditar);
-
-                img.setRuta(ruta);
-
-                img.setTitulo(titulo);
+                //Modificamos las listas de Strings por separado usando el índice
+                galeriaController.listaDeImagenes.set(indiceAEditar, ruta);
+                galeriaController.listaDeTitulos.set(indiceAEditar, titulo);
 
                 System.out.println("Se modificó: " + titulo);
-
             }
-
         } else {
-
-            // AGREGAR NUEVA
-            Imagen nuevaImagen = new Imagen(ruta,titulo,"Naturaleza",java.time.LocalDate.now(),2,2000000);
-
-            galeriaController.listaImagenes.add(0, nuevaImagen);
+            //Agregamos las imagenes directamente a sus respectivas listas en la posición 0
+            galeriaController.listaDeImagenes.add(0, ruta);
+            galeriaController.listaDeTitulos.add(0, titulo);
 
             // Limitar a 20 imágenes
-            if (galeriaController.listaImagenes.size() > 20) {
-
-                galeriaController.listaImagenes.remove(galeriaController.listaImagenes.size() - 1);
+            if (galeriaController.listaDeImagenes.size() > 20) {
+                galeriaController.listaDeImagenes.remove(galeriaController.listaDeImagenes.size() - 1);
+                galeriaController.listaDeTitulos.remove(galeriaController.listaDeTitulos.size() - 1); // También removemos el título sobrante
             }
-
         }
 
         // Refrescar galería
@@ -124,7 +111,7 @@ public class AgregarController {
         cerrar();
 
     }
-
+    
     private void cerrar() {
 
         Stage stage = (Stage) txtRuta.getScene().getWindow();

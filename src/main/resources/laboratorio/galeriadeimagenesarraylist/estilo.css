@@ -1,0 +1,98 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 6 may 2026, 8:38:01 p.m.
+    Author     : Franco y Adrian
+*/
+
+
+/* TITULO */
+
+.label{
+    -fx-font-family: Arial;
+    -fx-text-fill: black;
+}
+.labelblanca{
+    -fx-font-family: Arial;
+    -fx-text-fill: white;
+}
+
+/* BOTONES */
+
+.button{
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+}
+.botonestransparentes{
+    -fx-font-size: 30;
+    -fx-background-color:transparent;
+}
+/*Botón cerrar para las imagenes casi maximizadas*/
+#btnCerrar{
+
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+
+    -fx-background-radius: 20;
+
+    -fx-font-size:18px;
+
+    -fx-cursor: hand;
+
+    -fx-padding:8 15 8 15;
+}
+.buttonAgregar{
+    -fx-background-color: transparent;
+    -fx-text-fill: #27A3F5;
+}
+/*Al seleccionar el botón de cerrar se ilumina de rojo*/
+#btnCerrar:hover{
+
+    -fx-background-color:red;
+}
+
+/* CAJAS DE TEXTO */
+.ventana{
+    -fx-background-color: gray;
+}
+
+
+/* MENSAJE ERROR */
+
+.error{
+    -fx-text-fill: red;
+}
+
+
+/* IMAGENES */
+
+.image-view:hover{
+    -fx-opacity: 0.8;
+}
+
+.imagenes{
+    -fx-border-color: black;
+    -fx-border-width: 3;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        black,
+        20,
+        0.5,
+        0,
+        0
+        );
+}
+/*Panel para ver la imagen con trasparente con negro*/
+.panelVisor{
+    -fx-background-color: rgba(0,0,0,0.75);
+}
+.tarjeta{
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 10;
+
+}
