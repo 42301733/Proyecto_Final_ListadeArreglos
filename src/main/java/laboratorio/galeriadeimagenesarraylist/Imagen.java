@@ -9,6 +9,7 @@ import java.time.LocalDate;
 /**
  *
  * @author Jorge
+ * @author Adria
  */
 public class Imagen {
 

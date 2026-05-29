@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="ventana" stylesheets="@estilo.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio.galeriadeimagenesfx.GaleriaController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="ventana" stylesheets="@estilo.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio.galeriadeimagenesarraylist.galeriaController">
 
    <children>
 
@@ -27,7 +27,7 @@
       <GridPane fx:id="grdGaleria" hgap="40.0" layoutX="399.0" layoutY="140.0" prefHeight="850.0" prefWidth="1600.0" vgap="40.0" />
       <ImageView fx:id="imgAgregar" fitHeight="78.0" fitWidth="125.0" layoutX="1493.0" layoutY="68.0" onMouseClicked="#abrirVentanaAgregar" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images2/Agregarimagen.png" />
+            <Image url="@../../imagenes2/Agregarimagen.png" />
          </image>
       </ImageView>
 

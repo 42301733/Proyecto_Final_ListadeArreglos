@@ -9,21 +9,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@estilo.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio.galeriadeimagenesfx.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laboratorio.galeriadeimagenesarraylist.loginController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="239.0">
          <image>
-            <Image url="@../../images2/plo.png" />
+            <Image url="@../../imagenes2/plo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="332.0" layoutY="198.0">
          <image>
-            <Image url="@../../images2/candado.png" />
+            <Image url="@../../imagenes2/candado.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="332.0" layoutY="166.0">
          <image>
-            <Image url="@../../images2/ll.jpg" />
+            <Image url="@../../imagenes2/ll.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="txtLoginUsuario" layoutX="374.0" layoutY="166.0" promptText="NOMBRE DE USUARIO" />
